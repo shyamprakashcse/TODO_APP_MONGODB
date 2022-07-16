@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="css/TodoMainPage.css">
+</head>
+
+<body>
+    <nav>
+        <h1>TodoList</h1>
+        <h2>
+            <%=DATE%>
+        </h2>
+    </nav>
+
+
+
+    <div class="Outeritem">
+        <%for(var i=0;i<NEWITEM.length;i++){%>
+            <form class="InnerItem" action="/delete" method="POST">
+                <input type="checkbox" name="CHECK" id="" onchange="this.form.submit()" value="<%=NEWITEM[i]._id%>">
+                <p>
+                    <%=NEWITEM[i].name%>
+                </p>
+            </form>
+            <%}%>
+
+    </div>
+
+
+    <form action="/" method="POST" class="input">
+
+        <input type="text" name="ITEM" placeholder="New Item" autocomplete="off">
+        <button type="submit">
+              ADD
+          </button>
+
+    </form>
+</body>
+
+</html>
